@@ -3,7 +3,7 @@ package com.lambdaschool.javaorders.services;
 import com.lambdaschool.javaorders.models.Customers;
 import java.util.List;
 
-public class CustomerService {
+public interface CustomerService {
 
     // find all
     List<Customers> findAll();

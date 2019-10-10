@@ -30,6 +30,9 @@ public class Agent {
     @JsonIgnoreProperties("agent")
     private List<Customers> customer = new ArrayList<>();
 
+    public Agent() {
+    }
+
     // Constructor
     public Agent(String agentname, String workingarea, double commission, String phone, String country) {
         this.agentname = agentname;

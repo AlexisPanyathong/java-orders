@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 @Service(value = "customerService")
-public class CustomerServiceImpl {
+public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     // to access the orders repository
@@ -19,9 +21,9 @@ public class CustomerServiceImpl {
     // generate override methods from orders
     // find all
     @Override
-    public List<Customer> findAll()
+    public List<Customers> findAll()
     {
-        List<Customer> rtnList = new ArrayList<>();
+        List<Customers> rtnList = new ArrayList<>();
         custrepo.findAll().iterator().forEachRemaining(rtnList::add);
         return rtnList;
     }
@@ -30,9 +32,9 @@ public class CustomerServiceImpl {
     @Transactional
     // save
     @Override
-    public Customers save(Customer customer)
+    public Customers save(Customers customer)
     {
-        Customers newCustomer = new Customer();
+        Customers newCustomer = new Customers();
 
         newCustomer.setCustname(customer.getCustname());
         newCustomer.setCustcity(customer.getCustcity());
@@ -63,7 +65,7 @@ public class CustomerServiceImpl {
     }
 
     // delete by id
-    @Override
+   @Override
     public void delete(long id)
     {
         custrepo.deleteById(id);

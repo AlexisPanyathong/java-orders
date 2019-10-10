@@ -27,7 +27,6 @@ public class Customers {
     private double paymentamt;
     private double outstandingamt;
     private String phone;
-    private long agentcode;
 
     @ManyToOne
     @JsonIgnoreProperties("customers")
@@ -41,7 +40,7 @@ public class Customers {
 
     }
 
-    public Customers(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, long agentcode, Agent agent) {
+    public Customers(String custname, String custcity, String workingarea, String custcountry, String grade, double openingamt, double receiveamt, double paymentamt, double outstandingamt, String phone, Agent agent) {
         this.custname = custname;
         this.custcity = custcity;
         this.workingarea = workingarea;
@@ -52,7 +51,6 @@ public class Customers {
         this.paymentamt = paymentamt;
         this.outstandingamt = outstandingamt;
         this.phone = phone;
-        this.agentcode = agentcode;
         this.agent = agent;
     }
 
@@ -142,14 +140,6 @@ public class Customers {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public long getAgentcode() {
-        return agentcode;
-    }
-
-    public void setAgentcode(long agentcode) {
-        this.agentcode = agentcode;
     }
 
     public Agent getAgent() {

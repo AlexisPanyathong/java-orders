@@ -25,11 +25,11 @@ public class Orders {
 
     }
 
-    public Orders(double ordamount, double advanceamount, String orddescription, Customers customers) {
+    public Orders(double ordamount, double advanceamount, Customers customers, String orddescription) {
         this.ordamount = ordamount;
         this.advanceamount = advanceamount;
-        this.orddescription = orddescription;
         this.customers = customers;
+        this.orddescription = orddescription;
     }
 
     public long getOrdnum() {
@@ -56,6 +56,14 @@ public class Orders {
         this.advanceamount = advanceamount;
     }
 
+    public Customers getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(Customers customers) {
+        this.customers = customers;
+    }
+
     public String getOrddescription() {
         return orddescription;
     }
@@ -64,11 +72,5 @@ public class Orders {
         this.orddescription = orddescription;
     }
 
-    public Customers getCustomers() {
-        return customers;
-    }
 
-    public void setCustomers(Customers customers) {
-        this.customers = customers;
-    }
 }

@@ -13,7 +13,7 @@ import java.util.List;
 
 @Transactional
 @Service(value = "agentService")
-public class AgentServiceImpl {
+public class AgentServiceImpl implements AgentService {
 
     @Autowired
     // This access the agents repository
@@ -39,24 +39,23 @@ public class AgentServiceImpl {
     @Transactional
     // Save
     @Override
-    public Agent save(Agent agents)
-    {
-        Agent newAgents = new Agent();
+    public Agent save(Agent agents) {
+        Agent newAgent = new Agent();
 
-        newAgents.setAgentname(agents.getAgentname());
-        newAgents.setWorkingarea(agents.getWorkingarea());
-        newAgents.setCommission(agents.getCommission());
-        newAgents.setPhone(agents.getPhone());
-        newAgents.setCountry(agents.getCountry());
+        newAgent.setAgentname(agents.getAgentname());
+        newAgent.setWorkingarea(agents.getWorkingarea());
+        newAgent.setCommission(agents.getCommission());
+        newAgent.setPhone(agents.getPhone());
+        newAgent.setCountry(agents.getCountry());
 
-        for (Customers c : agents.getCustomers())
+        for (Customers c : agents.getCustomer())
         {
-            newAgents.getCustomers().add(new Customers(c.getCustname(),
+            newAgent.getCustomer().add(new Customers(c.getCustname(),
                     c.getCustcity(), c.getWorkingarea(), c.getCustcountry(),
                     c.getGrade(), c.getOpeningamt(), c.getReceiveamt(), c.getPaymentamt(),
-                    c.getOutstandingamt(), c.getPhone(), newAgents));
+                    c.getOutstandingamt(), c.getPhone(), newAgent));
         }
-        return agentrepo.save(newAgents);
+        return agentrepo.save(newAgent);
     }
 
     // Update by id
