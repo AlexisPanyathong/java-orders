@@ -1,11 +1,11 @@
-package com.lambdaschool.orders;
+package com.lambdaschool.javaorders;
 
-import com.lambdaschool.orders.model.Agent;
-import com.lambdaschool.orders.model.Customers;
-import com.lambdaschool.orders.model.Orders;
-import com.lambdaschool.orders.repos.AgentRepository;
-import com.lambdaschool.orders.repos.CustomersRepository;
-import com.lambdaschool.orders.repos.OrdersRepository;
+import com.lambdaschool.javaorders.models.Agent;
+import com.lambdaschool.javaorders.models.Customers;
+import com.lambdaschool.javaorders.models.Orders;
+import com.lambdaschool.javaorders.repos.AgentRepo;
+import com.lambdaschool.javaorders.repos.CustomerRepo;
+import com.lambdaschool.javaorders.repos.OrderRepo;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,11 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Component
 public class SeedData implements CommandLineRunner {
-    private CustomersRepository custrepos;
-    private AgentRepository agentrepos;
-    private OrdersRepository ordersrepos;
+    private CustomerRepo custrepos;
+    private AgentRepo agentrepos;
+    private OrderRepo ordersrepos;
 
-    public SeedData(CustomersRepository custrepos, AgentRepository agentrepos, OrdersRepository ordersrepos) {
+    public SeedData(CustomerRepo custrepos, AgentRepo agentrepos, OrderRepo ordersrepos) {
         this.custrepos = custrepos;
         this.agentrepos = agentrepos;
         this.ordersrepos = ordersrepos;
